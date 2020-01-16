@@ -1,0 +1,19 @@
+# *IDE files and folders*
+# ignore files
+**/.DS_Store
+*.iml
+.classpath
+.project
+
+# ignore folders
+.idea
+target
+.settings/
+node_modules
+
+# *Vaadin files*
+package.json
+package-lock.json
+webpack.config.js
+webpack.generated.js
+
