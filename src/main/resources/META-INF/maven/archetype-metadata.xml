@@ -6,7 +6,7 @@
         name="javaee-vaadin-docker">
     <requiredProperties>
         <requiredProperty key="dataSourcePrefix">
-            <defaultValue>car</defaultValue>
+            <defaultValue>example</defaultValue>
             <validationRegex><![CDATA[^[a-z]+$]]></validationRegex>
         </requiredProperty>
     </requiredProperties>
@@ -17,6 +17,9 @@
                 <include>docker-compose.yml</include>
                 <include>Dockerfile</include>
                 <include>*.sh</include>
+                <include>README.md</include>
+                <include>.gitignore</include>
+                <include>.gitattributes</include>
             </includes>
         </fileSet>
         <fileSet filtered="false" packaged="false">
@@ -24,7 +27,6 @@
             <includes>
                 <include>.gitattributes</include>
                 <include>.gitignore</include>
-                <include>README.md</include>
             </includes>
         </fileSet>
     </fileSets>
@@ -35,6 +37,7 @@
                     <directory></directory>
                     <includes>
                         <include>*.xml</include>
+                        <include>Dockerfile</include>
                     </includes>
                 </fileSet>
                 <fileSet filtered="true" packaged="true">
@@ -48,6 +51,12 @@
                     <includes>
                         <include>**/*.xml</include>
                         <include>**/*.properties</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="true" packaged="false">
+                    <directory>docker-entrypoint-initdb.d</directory>
+                    <includes>
+                        <include>*.sql</include>
                     </includes>
                 </fileSet>
             </fileSets>

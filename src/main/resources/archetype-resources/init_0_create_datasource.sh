@@ -32,7 +32,7 @@ touch $POSTBOOT_COMMANDS
 echo "Adding creation of datasource to post boot commands"
 echo "create-jdbc-connection-pool --datasourceclassname org.postgresql.ds.PGConnectionPoolDataSource --restype javax.sql.ConnectionPoolDataSource --property user=${DB_USER}:password=${DB_PASSWORD}:DatabaseName=${DB_NAME}:ServerName=${DB_HOST}:port=${DB_PORT} ${dataSourcePrefix}Pool" >>$POSTBOOT_COMMANDS
 echo "ping-connection-pool ${dataSourcePrefix}Pool" >>$POSTBOOT_COMMANDS
-echo "create-jdbc-resource --connectionpoolid=carPool jdbc/${dataSourcePrefix}" >>$POSTBOOT_COMMANDS
+echo "create-jdbc-resource --connectionpoolid=${dataSourcePrefix}Pool jdbc/${dataSourcePrefix}" >>$POSTBOOT_COMMANDS
 echo "list-jdbc-resources" >>$POSTBOOT_COMMANDS
 
 export DB_PASSWORD=""

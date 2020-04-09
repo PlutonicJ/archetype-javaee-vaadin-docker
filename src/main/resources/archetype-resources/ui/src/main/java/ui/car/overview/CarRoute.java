@@ -23,7 +23,7 @@ import java.util.Map;
 @Route(CarRoute.ROUTE_ID)
 public class CarRoute extends VerticalLayout implements RouterLayout {
 
-    public static final String ROUTE_ID = "car";
+    public static final String ROUTE_ID = "${dataSourcePrefix}";
 
     public CarRoute() {
     }

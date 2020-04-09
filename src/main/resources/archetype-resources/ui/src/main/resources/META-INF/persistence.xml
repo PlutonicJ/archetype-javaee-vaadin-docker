@@ -2,9 +2,9 @@
              xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.2"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
     <!-- Define persistence unit -->
-    <persistence-unit name="cars">
-        <jta-data-source>jdbc/car</jta-data-source>
-        <class>${groupId}.Car</class>
+    <persistence-unit name="${dataSourcePrefix}">
+        <jta-data-source>jdbc/${dataSourcePrefix}</jta-data-source>
+        <class>${groupId}.entity.Car</class>
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 

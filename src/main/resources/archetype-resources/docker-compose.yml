@@ -5,17 +5,17 @@ services:
     build: ./database
     container_name: db
     environment:
-      - POSTGRES_USER=test
-      - POSTGRES_PASSWORD=test
+      - POSTGRES_USER=${dataSourcePrefix}
+      - POSTGRES_PASSWORD=${dataSourcePrefix}
       - POSTGRES_DB=${dataSourcePrefix}
     ports:
       - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
     restart: always
-  car:
+  ${dataSourcePrefix}:
     build: .
-    container_name: test
+    container_name: ${dataSourcePrefix}
     depends_on:
       - db
     ports:
@@ -24,9 +24,9 @@ services:
       - "9009:9009"
     restart: always
     environment:
-      - DB_USER=test
-      - DB_PASSWORD=test
-      - DB_NAME=test
+      - DB_USER=${dataSourcePrefix}
+      - DB_PASSWORD=${dataSourcePrefix}
+      - DB_NAME=${dataSourcePrefix}
       - DB_HOST=db
       - DB_PORT=5432
       - PAYARA_ARGS=-d
